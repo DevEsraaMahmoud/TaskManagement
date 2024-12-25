@@ -27,8 +27,8 @@ Follow these steps to set up the project on your local environment.
 ### 1. Clone the repository
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone <git@github.com:DevEsraaMahmoud/TaskManagement.git>
+cd <TaskManagement>
 ```
 
 ### 2. Install dependencies
@@ -53,9 +53,9 @@ cp .env.example .env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=your_database_name
-DB_USERNAME=your_database_user
-DB_PASSWORD=your_database_password
+DB_DATABASE=task-management
+DB_USERNAME=root
+DB_PASSWORD=
 ```
 
 ### 4. Run database migrations and seeders
@@ -88,21 +88,11 @@ You can now access the API at `http://127.0.0.1:8000`.
 
 ### Authentication
 
-- **Register**: `POST /api/register`
-  - Request body:
-    ```json
-    {
-      "name": "John Doe",
-      "email": "john@example.com",
-      "password": "password"
-    }
-    ```
-
 - **Login**: `POST /api/login`
   - Request body:
     ```json
     {
-      "email": "john@example.com",
+      "email": "test@test.com",
       "password": "password"
     }
     ```
@@ -114,7 +104,6 @@ You can now access the API at `http://127.0.0.1:8000`.
   - Supports query parameters for filtering:
     - `filter[name]`: Filter by task name.
     - `filter[status]`: Filter by task status.
-    - `filter[created_between]`: Filter by date range (e.g., `2024-01-01,2024-12-31`).
 
 - **Get task by ID**: `GET /api/tasks/{id}`
 
@@ -123,7 +112,7 @@ You can now access the API at `http://127.0.0.1:8000`.
   {
     "name": "Task name",
     "description": "Task description",
-    "status": "pending"
+    "status": 0
   }
   ```
 
@@ -142,7 +131,3 @@ php artisan test
 
 - This API uses the `spatie/laravel-query-builder` package for advanced filtering.
 - Authentication is required for all endpoints.
-
-## License
-
-This project is open-sourced under the MIT License.
